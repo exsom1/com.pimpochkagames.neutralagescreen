@@ -8,8 +8,7 @@ namespace PimpochkaGames.NeutralAgeScreen
     public class NeutralAgeScreenManager : MonoBehaviour
     {
         private const string USER_AGE_PROPERTY_NAME = "user_age";
-        public static NeutralAgeScreenManager Instance { get; private set; }
-        public event Action<int> OnApplyUserAge;
+        public static event Action<int> OnApplyUserAge;
 
         [SerializeField]
         private bool _autoDestory = true;
@@ -24,9 +23,6 @@ namespace PimpochkaGames.NeutralAgeScreen
 
         private void Awake()
         {
-            if (Instance == null)
-                Instance = this;
-
             if (PlayerPrefs.HasKey(USER_AGE_PROPERTY_NAME))
             {
                 if (_autoDestory)
